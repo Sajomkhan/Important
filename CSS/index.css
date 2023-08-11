@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+  
+  html,
+  body {
+    max-width: 100vw;
+    overflow-x: hidden;
+    color: #333;
+  }
+  
+  .btn {
+    @apply text-sm rounded-md py-2 px-5;
+  }
+  .btn:hover {
+    transition: 0.3s ease-in;
+    background-image: linear-gradient(rgb(0 0 0/25%) 0 0);
+  }
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+    font-size: 15px;
+    font-weight: 400;
+  }
+  
+  .theme {
+    transition: 1s all ease;
+  }
+  
+  .light {
+    @apply text-gray-700 bg-gray-100;
+  }
+  .dark {
+    @apply bg-gray-950 text-gray-300;
+  }
+  
+  .primary {
+    @apply text-teal-600;
+  }
+  .primary_border {
+    @apply border-2 border-teal-600;
+  }
+  .primary_bg {
+    @apply bg-teal-600 text-gray-200;
+  }
+  .primary_bg2 {
+    @apply bg-teal-600/50 text-gray-200;
+  }
+
+  .danger {
+    @apply text-pink-600;
+  }
+  .danger_bg {
+    @apply bg-pink-600 text-gray-200;
+  }
+  
+  .section_color {
+    @apply bg-gray-500/5;
+  }
+  
+  .container {
+    @apply max-w-full sm:max-w-[1200px] px-2 md:px-5 mx-auto;
+  }
