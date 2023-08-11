@@ -53,7 +53,6 @@ const Login = () => {
           </label>
           <input
             type="userName"
-            id="userName"
             className="w-full px-4 py-2 border rounded shadow-sm focus:outline-none focus:ring focus:ring-blue-200"
             placeholder="Enter your userName"
             value={userName}
@@ -66,7 +65,6 @@ const Login = () => {
           </label>
           <input
             type="password"
-            id="password"
             className="w-full px-4 py-2 border rounded shadow-sm focus:outline-none focus:ring focus:ring-blue-200"
             placeholder="Enter your password"
             value={password}
