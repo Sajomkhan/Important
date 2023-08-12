@@ -1,5 +1,5 @@
 
-// ----------------Cloudinary File Upload Fetcher Function------------------------------//
+// ----------------Component: Cloudinary File Upload Fetcher Function Component------------------------------//
 
 export const cloudinaryFetcher = async( image, setUrl) => {
 
@@ -26,12 +26,12 @@ export const cloudinaryFetcher = async( image, setUrl) => {
 
 
 
-// -----------------------Another component-------------------------------//
+// -----------------------Component: Form-Component-------------------------------//
 
 import { useState } from "react";
 
-const Tech = () => {
-<<<<<<< HEAD
+const Form-Component = () => {
+  
 const [image, setImage] = useState("");
 const [url, setUrl] = useState("");
 
@@ -106,4 +106,4 @@ return (
 
 };
 
-export default Tech;
+export default Form-Component;
