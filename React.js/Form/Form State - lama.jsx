@@ -1,5 +1,4 @@
 import React, { useReducer, useRef, useState } from "react";
-import { formReducer, INITIAL_STATE } from "./formReducer";
 
 const Form = () => {
 
@@ -18,7 +17,8 @@ const Form = () => {
   });
 
   const handleChange = (e) => {
-    setProduct((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    setProduct({ ...product, [e.target.name]: e.target.value });
+    // or  setProduct((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
   const tagRef = useRef();
