@@ -1,5 +1,5 @@
 
-// ----------------Cloudinary File Upload Fetcher Function------------------------------//
+// ----------------Component: Cloudinary File Upload Fetcher Function Component------------------------------//
 
 export const cloudinaryFetcher = async( image, setUrl) => {
 
@@ -11,7 +11,7 @@ export const cloudinaryFetcher = async( image, setUrl) => {
     );
   data.append("cloud_name", ''); 
 
-<<<<<<< HEAD
+  
  // Upload Image directly to Cloudinary no need backend
     await fetch(`https://api.cloudinary.com/v1_1/dcqw2t8r1/image/upload`, {
         method: "POST",
@@ -26,16 +26,12 @@ export const cloudinaryFetcher = async( image, setUrl) => {
 
 
 
-=======
-
-
->>>>>>> 163f37b74be0437fee161990da24feb6e6c4ce4c
-// -----------------------Another component-------------------------------//
+// -----------------------Component: Form-Component-------------------------------//
 
 import { useState } from "react";
 
-const Tech = () => {
-<<<<<<< HEAD
+const Form-Component = () => {
+  
 const [image, setImage] = useState("");
 const [url, setUrl] = useState("");
 
@@ -71,7 +67,7 @@ return (
     </div>
   </>
 );
-=======
+  
   const [image, setImage] = useState("");
   const [url, setUrl] = useState("");
 
@@ -107,7 +103,7 @@ return (
       </div>
     </>
   );
->>>>>>> 163f37b74be0437fee161990da24feb6e6c4ce4c
+
 };
 
-export default Tech;
+export default Form-Component;
