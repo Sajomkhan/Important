@@ -3,8 +3,6 @@ import { formReducer, INITIAL_STATE } from "./formReducer";
 
 const Form = () => {
 
-  USING USESTATE
-
   const [product, setProduct] = useState({
     title: "",
     desc: "",
