@@ -1,0 +1,11 @@
+
+https://www.youtube.com/watch?v=YunH-IVTcsE&list=PLGkkG6Q8VjGWvLqtOoHzQ2prMxcGUNA72&index=1&ab_channel=CODINGACADEMY
+
+react-quill
+formik
+yup
+redux-thunk
+axios
+react-dropzone
+react-pro-sidebar
+react-toastify
