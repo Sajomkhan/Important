@@ -17,8 +17,8 @@ const Form = () => {
   });
 
   const handleChange = (e) => {
-    setProduct({ ...product, [e.target.name]: e.target.value });
-    // or  setProduct((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+   setProduct((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    //or setProduct({ ...product, [e.target.name]: e.target.value });
   };
 
   const tagRef = useRef();
