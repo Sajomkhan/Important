@@ -1,5 +1,5 @@
 
-// ----------------Component: Cloudinary File Upload Fetcher Function Component------------------------------//
+// ----------------Component: Fetcher Component------------------------------//
 
 export const cloudinaryFetcher = async( image, setUrl) => {
 
