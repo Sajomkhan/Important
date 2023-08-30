@@ -1,10 +1,98 @@
+
+// --------------------index.jx------------------------//
+const app = require('./app')
+const connectDB = require('./db/connection');
+require('dotenv').config()
+
+const PORT = process.env.PORT || 5010;
+
+connectDB()
+
+app.listen(PORT, () => {
+  console.log(`app is running on http://localhost:${PORT}`);
+});
+
+
+
+// --------------------utils/errorResponse.js-----------------------//
+class ErrorResponse extends Error {
+  constructor(message, codeStatus) {
+      super(message);
+      this.codeStatus = codeStatus;
+  }
+}
+module.exports = ErrorResponse;
+
+
+// --------------------middleware/error.js-----------------------//
+const ErrorResponse = require('../utils/errorResponse');
+
+const errorHandler = (err, req, res, next) => {
+    let error = { ...err };
+    error.message = err.message;
+
+    if (err.name === "CastError") {
+        const message = `Ressource not found ${err.value}`;
+        error = new ErrorResponse(message, 404);
+    }
+
+    //Mongoose duplicate value
+    if (err.code === 11000) {
+        const message = "Duplicate field value entered";
+        error = new ErrorResponse(message, 400);
+    }
+
+    //Mongoose validation error
+    if (err.name === "ValidationError") {
+        const message = Object.values(err.errors).map(val => ' ' + val.message);
+        error = new ErrorResponse(message, 400);
+    }
+
+    res.status(error.codeStatus || 500).json({
+        success: false,
+        error: error.message || "server error"
+    })
+
+}
+
+module.exports = errorHandler;
+
+
+// --------------------app.js-----------------------//
+const express = require('express')
+const app = express()
+const cors = require('cors')
+const cookieParser = require("cookie-parser");
+
+// Import Router
+const errorHandler = require('./middleware/error');
+const userRouter = require("./routers/userRouter")
+const projectRouter = require("./routers/projectRouter")
+
+// Middleware
+app.use(express.json())
+app.use(express.urlencoded({extented: true}));
+app.use(cors({ credentials: true, origin: "http://localhost:5173" }));
+app.use(cookieParser());
+app.use("/uploads", express.static(__dirname + "/uploads"));
+
+// API End Point
+app.use("/api/user", userRouter)
+app.use("/api/project", projectRouter)
+
+//error middleware
+app.use(errorHandler);
+
+module.exports = app
+
+
+// ----------------projectController.js--------------------------//
 const Project = require("../models/projectModel");
 const jwt = require("jsonwebtoken");
 require('dotenv').config()
 const fs = require("fs");
 
 const jwt_secret = process.env.JWT_SECRET_KEY;
-
 
 // Create Project from Post request
 exports.createProject = async (req, res) => {
