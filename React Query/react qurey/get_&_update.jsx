@@ -59,7 +59,7 @@ import { updateExperience } from "../../api/experienceApi";
 const [formData, setFormData] = useState();
 
 
-// get data
+// get experience data
 const { data, isLoading, isError, error} = useQuery({
   queryKey: ["experience"],
   queryFn: getExperience,
@@ -67,7 +67,7 @@ const { data, isLoading, isError, error} = useQuery({
 
 
 
-// update data
+// update experience data
 const queryClient = useQueryClient();
 
 const updateDataMutation = useMutation(updateExperience, {
