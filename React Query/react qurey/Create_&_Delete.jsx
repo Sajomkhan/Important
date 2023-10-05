@@ -67,7 +67,7 @@ const queryClient = useQueryClient();
 
 
 
-// add data
+// add experience data
 const addDataMutation = useMutation(addExperience, {
   onSuccess: () => {
     // Invalidates cashe and refetch
@@ -82,7 +82,7 @@ const handleSubmit = async (e) => {
 
 
 
-// Delete Experience
+// Delete Experience data
 const deleteDataMutation = useMutation(deleteExperience, {
   onSuccess: () => {
     // Invalidates cashe and refetch
