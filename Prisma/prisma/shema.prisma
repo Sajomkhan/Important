@@ -10,6 +10,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+// -------------------next-auth prisma adapter--------------------------//
 model Account {
   id                String  @id @default(cuid()) @map("_id")
   userId            String
@@ -57,6 +58,7 @@ model VerificationToken {
   @@unique([identifier, token])
 }
 
+// -------------------db model--------------------------//
 model Category {
   id    String  @id @default(cuid()) @map("_id")
   slug  String  @unique
