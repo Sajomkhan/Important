@@ -52,7 +52,7 @@ export default function RootLayout({ children }) {
 
 
 
-// ------------------app\api\auth\[...nextauth]\router.js-----------------------------
+// ------------------app\api\auth\[...nextauth]\route.js-----------------------------
 
 import NextAuth from "next-auth"
 import GithubProvider from "next-auth/providers/github"
