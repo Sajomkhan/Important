@@ -83,7 +83,7 @@ import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 
 const Signin = () => {
-  const { data, status } = useSession();  
+  const { data : session, status } = useSession();  
   const router = useRouter()
 
   // if session status is loading
