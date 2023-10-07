@@ -91,8 +91,8 @@ const Signin = () => {
     return <div className="text-center text-xl mt-10">Loading...</div>
   }
 
-  // if session status is authenticate
-  if (status === "loading") {
+  // if session status is authenticated
+  if (status === "authenticated") {
     router.push('/')
   }
 
