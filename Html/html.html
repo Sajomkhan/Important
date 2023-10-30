@@ -1,0 +1,23 @@
+
+
+//------------------------------------------------------ //
+<html lang="en">
+  <head>
+    <title>Document</title>
+    <script src="index.js"></script>
+  </head>
+  <body>
+    <button onclick="showMessage()">Click me</button>
+    <ul id="ul"></ul>
+  </body>
+</html>
+
+
+function showMessage() {
+    const ul = document.getElementById('ul')
+    const li = document.createElement("li")
+    li.textContent = "The Man"
+    ul.appendChild(li)
+  } 
+
+  //------------------------------------------------------//
