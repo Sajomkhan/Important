@@ -3,7 +3,7 @@
 // Google Cloud Link: https://console.cloud.google.com/apis/credentials?project=carbide-ego-389714
 
 
-// ------------------.env-----------------------------
+// ------------------.env file-----------------------------
 
 GOOGLE_ID = 115874380407-5m0pmnaicvpbi1kecevqsr2rv3512c3p.apps.googleusercontent.com
 GOOGLE_SECRET = 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
