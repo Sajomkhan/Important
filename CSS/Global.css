@@ -1,6 +1,6 @@
 :root {
-  --bg: white;
-  --textColor: black;
+  --bg: #f8f9fa;
+  --text: #343a40;
   --softBg: #f0f0f0;
   --softTextColor: #626262;
 }
