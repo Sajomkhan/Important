@@ -1,7 +1,7 @@
 
-// Grid System
+// Grid System & uses var
 
-        <form className="grid grid-cols-6 gap-4 mb-5">
+        <form className="grid grid-cols-6 gap-4 mb-5 text-[var(--textLight)]">
           <input
             className="col-span-3 p-2 border"
             type="text"
