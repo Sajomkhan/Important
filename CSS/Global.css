@@ -1,6 +1,8 @@
 :root {
   --bg: #f8f9fa;
-  --text: #343a40;
+  --text: #3333;
+  --bgLightt: #222;
+  --textLight: #ddd;
   --softBg: #f0f0f0;
   --softTextColor: #626262;
 }
