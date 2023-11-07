@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   --bg: #f8f9fa;
   --text: #3333;
@@ -16,6 +20,8 @@
 body {
   max-width: 100vw;
   overflow-x: hidden;
+  background-color: var(--bg);
+  color: var(--text);
 }
 
 a {
@@ -31,16 +37,14 @@ a {
 }
 
 .light {
-  --bg: white;
-  --textColor: black;
-  --softBg: #f0f0f0;
-  --softTextColor: #626262;
+  --textLight: #222;
+  --bgLightt: #ddd;
 }
 
 .container {
   min-height: 100vh;
   background-color: var(--bg);
-  color: var(--textColor);
+  color: var(--text);
 }
 
 .wrapper {
@@ -77,12 +81,4 @@ a {
   .wrapper {
     max-width: 475px;
   }
-}
-
-.ql-container{
-  font-size: 28px !important;
-}
-
-.quill > .ql-container > .ql-editor.ql-blank::before{
-  color: #b3b3b1;
 }
