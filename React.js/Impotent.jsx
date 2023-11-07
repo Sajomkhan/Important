@@ -5,7 +5,6 @@
     { name: "Movie", price: "20.00" },
     { name: "Candy", price: "4.55" },
   ]);
-
 const totalPrice = items.reduce((sum, item) => sum + parseFloat(item.price), 0);
 
 
