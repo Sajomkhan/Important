@@ -35,15 +35,14 @@ import { usePathname } from "next/navigation";
     {
       label: "About",
       href: "/about",
-    },
-  ];
+    }];
 
-      <ul className="flex gap-4">
-        {navItems.map((link, index) => (
-          <li key={index}>
-            <Link href={item.href} className={ pathname === `${item.href}` ? "text-blue-700 underline" : "" }>
-              {link.label}
-            </Link>
-          </li>
-        ))}
-      </ul>
+ <ul className="flex gap-4">
+    {navItems.map((link, index) => (
+     <li key={index}>
+        <Link href={item.href} className={ pathname === `${item.href}` ? "text-blue-700 underline" : "" }>
+         {link.label}
+        </Link>
+      </li>
+     ))}
+   </ul>
