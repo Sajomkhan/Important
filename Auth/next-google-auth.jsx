@@ -1,6 +1,6 @@
-// Next Auth Link:    https://authjs.dev/getting-started/oauth-tutorial
-// Next Auth Link:    https://next-auth.js.org/getting-started/introduction 
-// Google Cloud Link: https://console.cloud.google.com/apis/credentials?project=carbide-ego-389714
+Next Auth Link:    https://authjs.dev/getting-started/oauth-tutorial
+Next Auth Link:    https://next-auth.js.org/getting-started/introduction 
+Google Cloud Link: https://console.cloud.google.com/apis/credentials?project=carbide-ego-389714
 
 
 // ------------------.env file-----------------------------
