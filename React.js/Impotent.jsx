@@ -24,7 +24,7 @@ console.log(array1); // [1, 2, 3, 4, 5, 6]
   document.addEventListener("keydown", handleKeyPress);
 
 
- // ------------------------Active Link Example--------------------------//
+ // -----------------Active Link Example--------------------------//
 import { usePathname } from "next/navigation";
   const pathname = usePathname();
   const navItems = [
@@ -37,13 +37,14 @@ import { usePathname } from "next/navigation";
       href: "/about",
     }];
 
- <ul className="flex gap-4">
-    {navItems.map((link, index) => (
-     <li key={index}>
-        <Link href={item.href} 
-         className={ pathname === `${item.href}` ? "text-blue-700 underline" : "" }>
-         {link.label}
-        </Link>
-      </li>
-     ))}
-   </ul>
+<ul className="flex gap-4">
+  {navItems.map((link, index) => (
+   <li key={index}>
+    <Link href={item.href} 
+    className={ pathname === `${item.href}`
+     ? "text-blue-700 underline" : "" }>
+       {link.label}
+    </Link>
+    </li>
+   ))}
+  </ul>
