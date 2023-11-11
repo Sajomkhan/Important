@@ -25,6 +25,10 @@ a {
   text-decoration: none;
 }
 
+input {
+  background-color: inherit;
+}
+
 .dark {
   --bg: #0f172a;
   --textColor: #ddd;
