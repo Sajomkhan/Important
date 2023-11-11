@@ -41,7 +41,8 @@ import { usePathname } from "next/navigation";
   {navItems.map((link, index) => (
    <li key={index}>
      <Link href={item.href} 
-      className={ pathname === `${item.href}` ? "text-blue-700 underline" : "" }>
+      className={`flex gap-2 ${ pathname === item.path ? "text-teal-400" : "" }`}
+      >
        {link.label}
      </Link>
     </li>
