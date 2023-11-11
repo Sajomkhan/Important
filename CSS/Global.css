@@ -29,6 +29,10 @@ input {
   background-color: inherit;
 }
 
+input:focus {
+  outline: 1px solid #7777;
+}
+
 .dark {
   --bg: #0f172a;
   --textColor: #ddd;
