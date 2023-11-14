@@ -42,26 +42,6 @@
     @apply bg-gray-950 text-gray-300;
   }
   
-  .primary {
-    @apply text-teal-600;
-  }
-  .primary_border {
-    @apply border-2 border-teal-600;
-  }
-  .primary_bg {
-    @apply bg-teal-600 text-gray-200;
-  }
-  .primary_bg2 {
-    @apply bg-teal-600/50 text-gray-200;
-  }
-
-  .danger {
-    @apply text-pink-600;
-  }
-  .danger_bg {
-    @apply bg-pink-600 text-gray-200;
-  }
-  
   .section_color {
     @apply bg-gray-500/5;
   }
