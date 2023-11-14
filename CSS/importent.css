@@ -1,0 +1,10 @@
+/* ----------Gradient-------------- */
+.gradient{
+    background: linear-gradient(to bottom, #194c33, #bbb);
+}
+
+/* ----------Title Case-----Text Transform-------------- */
+.catTitle::first-letter {
+  font-weight: 600;
+  text-transform: uppercase;
+  }
