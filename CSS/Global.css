@@ -2,7 +2,7 @@
 @tailwind base;
 
 .btn{
-  @apply px-2 py-1 rounded-md ease-in-out duration-700;
+  @apply px-2 py-1 rounded-md ease-in-out duration-200 hover:opacity-70
 }
 
 .btn_primary{
