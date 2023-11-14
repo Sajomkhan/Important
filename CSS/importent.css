@@ -8,3 +8,9 @@
   font-weight: 600;
   text-transform: uppercase;
   }
+
+/* ----------Batton Hover Effect------------- */
+  .btn:hover {
+    cursor: pointer;
+    background-image: linear-gradient(rgb(0 0 0/25%) 0 0);
+  }
