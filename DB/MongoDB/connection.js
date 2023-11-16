@@ -12,11 +12,27 @@ const connectDB = async () => {
     }
 }
 
+
+//------------------for Next.js-----------------//
 module.exports = connectDB
 
+import mongoose from "mongoose";
+
+const connect = async () => {
+  try {
+    await mongoose.connect(process.env.MONGO);
+  } catch (error) {
+    throw new Error("Connection failed!");
+  }
+};
+
+export default connect;
 
 
-//------------------DB connection for Next.js-----------------//
+
+
+//------------------for Next.js-----------------//
+// check if db connected for first time
 
 import mongoose from "mongoose";
 
