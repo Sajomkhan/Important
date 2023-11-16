@@ -2,7 +2,7 @@
 @tailwind base;
 
 .btn{
-  @apply px-2 py-1 rounded-md ease-in-out duration-200 hover:opacity-70
+  @apply px-2 py-1 rounded-md ease-in-out duration-100 hover:opacity-70
 }
 
 .btn_primary{
@@ -29,6 +29,8 @@
   --bgHover: rgb(35, 45, 65);
   --primary: teal;
   --danger: rgb(178, 14, 91);
+  --active: #eeee;
+  --deactive: #8888;
 }
 
 * {
@@ -47,13 +49,41 @@ a {
   text-decoration: none;
 }
 
-input {
+input, textarea, select {
   background-color: inherit;
+  padding: 3px;
 }
 
-input:focus {
-  outline: 1px solid #7777;
+input:focus, textarea:focus {
+  /* outline: none */
+  outline: 2px solid #5555;
+  padding: 1px 1px;
 }
+
+input::placeholder, textarea::placeholder{
+  color: #8888;
+}
+
+select{
+  color: #aaaa;
+}
+
+.gradient{
+  background: linear-gradient(to bottom, #194c33, #bbb);
+}
+
+.Pending{
+  background-color: #f7cb7375;
+}
+
+.Done{
+  background-color: #afd6ee75;
+}
+
+.Cancelled{
+  background-color: #f7737375;
+}
+
 
 .dark {
   --bg: #0f172a;
