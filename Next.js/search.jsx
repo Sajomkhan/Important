@@ -12,7 +12,7 @@ const Search = ({ placeholder }) => {
   const handleSearch = (e) => {
     const params = new URLSearchParams(searchParams);
     if (e.target.value) {
-        e.target.value > 2 
+        e.target.value > 1
             && params.set("q", e.target.value);
     } else {
       params.delete("q");
