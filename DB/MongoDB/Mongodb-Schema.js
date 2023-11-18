@@ -24,12 +24,15 @@ const userSchema = new mongoose.Schema(
       type: String,
     },
     isAdmin: {
-      type: String,
+      type: Boolean,
       default: false,
     },
     isActive: {
       type: Boolean,
       default: true,
+    },
+    phone: {
+      type: String,
     },
     address: {
       type: String,
@@ -48,7 +51,6 @@ const productSchema = new mongoose.Schema(
     desc: {
       type: String,
       required: true,
-      min: 0,
     },
     price: {
       type: Number,
@@ -57,11 +59,16 @@ const productSchema = new mongoose.Schema(
     },
     stock: {
       type: Number,
+      required: true,
+      min: 0,
+    },
+    img: {
+      type: String,
     },
     color: {
       type: String,
     },
-    img: {
+    size: {
       type: String,
     },
   },
