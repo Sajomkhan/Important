@@ -65,6 +65,7 @@ import { fetchUsers } from "@/app/lib/fetcher";
 
 const UserPage = async ({ searchParams }) => {
   const q = searchParams?.q || "";
+  //const q = searchParams.get("q") || 1;           // another way to get searchParams
   const users = await fetchUsers(q);
 
   return (
