@@ -11,7 +11,8 @@ const page = () => {
   return (
     <div>
       <form action={handleFrom}>
-        <input type="text" name="username" />
+        <input type="text" name="username" />  
+          {/* must have to use name */}
         <button>Send</button>
       </form>
     </div>
@@ -33,8 +34,7 @@ export const addUser = async (formData) => {
   try {
     connectDB;
     const salt = await bcrypt.genSalt(10);
-    const hashedPassword = await bcrypt.hash(password, salt);
-    
+    const hashedPassword = await bcrypt.hash(password, salt);    
     const newUser = new User({
       username,
       email,
@@ -56,7 +56,6 @@ export const addUser = async (formData) => {
 
 // export const addUser = async (formData) => {
 //   const data = Object.fromEntries(formData);
-
 //   try {
 //     connectDB;
 //     const newUser = await User.create(data);
@@ -66,3 +65,24 @@ export const addUser = async (formData) => {
 //     throw new Error("Failed to create user");
 //   }
 // };
+
+
+//-----------------------for delete action-----------------------------//
+ <form action={deleteProduct}>
+    <input type="hidden" name="id" value={product.id} />
+    <button className={`btn_danger`}>Delete</button>
+  </form>
+
+export const deleteProduct = async (formData) => {
+  "use server";
+  const { id } = Object.fromEntries(formData);
+
+  try {
+    connectDB;
+    await Product.findByIdAndDelete(id);
+  } catch (err) {
+    console.log(err);
+    throw new Error("Failed to delete product");
+  }
+  revalidatePath("/dashboard/products");
+};
