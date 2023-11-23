@@ -29,6 +29,7 @@ export const addUser = async (formData) => {
   "use server";
   const { username, email, password, img, isAdmin, isActive, address } =
     Object.fromEntries(formData);
+    // or  const data = Object.fromEntries(formData);
 
   try {
     connectDB;
@@ -41,6 +42,7 @@ export const addUser = async (formData) => {
       isActive,
       address,
     });
+    // or  const newUser = new User(data)
 
     await newUser.save();
   } catch (err) {
@@ -48,4 +50,3 @@ export const addUser = async (formData) => {
     throw new Error("Failed to create user");
   }
 };
-
