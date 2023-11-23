@@ -22,16 +22,19 @@ export default page;
 
 
 //----------------action.js-----------------------------//
+import { connectDB } from "./connection";
+import { User } from "./models";
+
 export const addUser = async (formData) => {
   "use server";
   const { username, email, password, img, isAdmin, isActive, address } =
     Object.fromEntries(formData);
-
+    // or  const data = Object.fromEntries(formData);
   try {
     connectDB;
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
-
+    
     const newUser = new User({
       username,
       email,
@@ -41,7 +44,7 @@ export const addUser = async (formData) => {
       isActive,
       address,
     });
-
+    // or  const newUser = new User(data)
     await newUser.save();
   } catch (err) {
     console.log(err);
