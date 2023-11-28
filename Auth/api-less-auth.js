@@ -1,3 +1,14 @@
+// document for next learn: https://nextjs.org/learn/dashboard-app/adding-authentication
+// document for credentials auth: https://authjs.dev/getting-started/providers/credentials-tutorial
+
+
+
+// npm install next-auth@beta
+
+//-------------------- add in .env  ----------------------//
+AUTH_SECRET=mysicreatkey
+AUTH_URL=http://localhost:3000/api/auth
+
 
 //-------------------app/authConfig.js------------------//
 export const authConfig = {
@@ -22,6 +33,7 @@ export const authConfig = {
 
 
 //-------------------root-file/ middleware.js------------------//
+// the middleware.js is required for perform every requested by authConfige.js
 import NextAuth from "next-auth";
 import { authConfig } from "./app/authconfig";
 
@@ -33,6 +45,7 @@ export const config = {
 
 
 //-------------------app/ auth.js------------------//
+// we are gonna fetch our user
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { authConfig } from "./authconfig";
@@ -68,7 +81,7 @@ export const { signIn, signOut, auth } = NextAuth({
       async authorize(credentials) {
         try {
           const user = await login(credentials);
-          return user;
+          return user;  //nextjs will take this user and will pass this to session
         } catch (err) {
           return null;
         }
@@ -93,3 +106,53 @@ export const { signIn, signOut, auth } = NextAuth({
     },
   },
 });
+
+
+//-------------------app/lib/actions.js-------------------//
+export const authenticate = async (prevState, formData) => {
+  const { username, password } = Object.fromEntries(formData);
+
+  try {
+    await signIn("credentials", { username, password });
+  } catch (err) {
+    return "Wrong Credentials!";
+  }
+};
+
+
+//--------------------app/login/page.jsx----------------------//
+"use client";
+import { authenticate } from "@/app/lib/actions";
+import { useFormState } from "react-dom";
+
+const LoginForm = () => {
+  const [state, formAction] = useFormState(authenticate, undefined);
+
+  return (
+    <form action={formAction}>
+      <h1>Login</h1>
+      <input type="text" placeholder="username" name="username" />
+      <input type="password" placeholder="password" name="password" />
+      <button>Login</button>
+      {state && state}
+    </form>
+  );
+};
+
+export default LoginForm;
+
+
+//---------------------app/components/sidebar.jsx------------------------//
+import { auth, signOut } from "@/app/auth";
+
+const Sidebar = async () => {
+  
+  const { user } = await auth();
+  
+  return (
+    <div >     
+    </div>
+  );
+};
+
+export default Sidebar;
