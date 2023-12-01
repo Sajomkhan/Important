@@ -116,7 +116,7 @@ const Signin = () => {
 export default Signin;
 
 
-// ---------------------Navebar.jsx--------------------------
+// --------------------- components /Navebar.jsx--------------------------
 
 "use client";
 
