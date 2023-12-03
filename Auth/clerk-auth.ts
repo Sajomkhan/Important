@@ -80,4 +80,22 @@ export default function Navbar() {
   );
 }
 
+// ---------------------home.tsx-----------------------//
+import { auth,  } from '@clerk/nextjs/server'
+import { redirect } from 'next/navigation'
+
+export default function Home() {
+  const {userId} = auth()
+
+  if(userId){
+    redirect("/dashboard")
+  }
+
+  return (
+    <main className="">
+      <h1>Home Page</h1>
+    </main>
+  )
+}
+
  
