@@ -66,3 +66,8 @@ export const addUser = async (formData) => {
 //     throw new Error("Failed to create user");
 //   }
 // };
+
+// ----------------- _util/Constants ------------//
+export default {
+ desc: "Lorem ipson"
+}
