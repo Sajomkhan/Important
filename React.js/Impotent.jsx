@@ -48,3 +48,9 @@ import { usePathname } from "next/navigation";
     </li>
    ))}
   </ul>
+
+
+// ----------------- _util/Constants ------------//
+export default {
+ desc: "Lorem ipson"
+}
