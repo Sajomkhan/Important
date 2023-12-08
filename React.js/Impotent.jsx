@@ -54,3 +54,15 @@ import { usePathname } from "next/navigation";
 export default {
  desc: "Lorem ipson"
 }
+
+// ----------------- find data from array of objects ------------//
+
+export const users = [
+    {id: "1", name: "Jone", email: "jone@test.com", password: "1234"},
+    {id: "2", name: "James", email: "james@test.com", password: "1234"},
+]
+
+ const user = users.find((item) => item.email === credentials.email);
+   if (user?.password === credentials.password) {
+     return user;
+   }
