@@ -1,3 +1,67 @@
+
+
+// ---------------------------- app/utils/connect.js--------------------------------//
+import mongoose from "mongoose";
+
+export async function connectDB(){
+    try {
+        await mongoose.connect(process.env.DB_URI)
+        console.log("DB is connected");
+    } catch (error) {
+        console.log("Error while connecting.", error);        
+    }
+}
+
+
+import mongoose from "mongoose";
+
+// ---------------------------- app/modles/userModle.js--------------------------------//
+const userSchema = mongoose.Schema({
+    // username: {
+    //     type: String,
+    //     require:[true, "Must provide a username"],
+    //     unique: [true, "Must be unique"]
+    // },
+    email: {
+        type: String,
+        require:[true, "Must provide a email"],
+        unique: [true, "Must be unique"]
+    },
+    password: {
+        type: String,
+        require:[true, "Must provide a passowrd"],
+    },
+}, {timestamps: true})
+
+const User = mongoose.models.User || mongoose.model("User", userSchema);
+
+export default User
+
+// ---------------------------- app/api/register/router.js--------------------------------//
+import { connectDB } from "../../utils/connect"
+import User from "../../models/userModel"
+import { NextResponse } from "next/server";
+import bcrypt from "bcrypt";
+
+export const POST = async (req) => {
+try {
+    await connectDB()
+    const {email, password} = await req.json();
+    const exists = await User.findOne({email})
+    // const exists = await User.findOne({$or:[{email},{username}]})
+    if(exists){
+        return NextResponse.json({message: "Email already exist"}, {status: 500})
+    }
+    const hashedPassword = await bcrypt.hash(password, 10)
+    await User.create({email, password: hashedPassword})
+    return NextResponse.json({message: "User registered"}, {status: 201});
+} catch (error) {
+    console.log("Error while registering user.", error);
+    return NextResponse.json({message: "Error occured while registering the user"}, {status: 500});
+}
+}
+
+// ----------------------------app/register/page.jsx--------------------------------//
 "use client";
 import React, { useState } from "react";
 
