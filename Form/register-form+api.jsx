@@ -13,9 +13,8 @@ export async function connectDB(){
 }
 
 
-import mongoose from "mongoose";
-
 // ---------------------------- app/modles/userModle.js--------------------------------//
+import mongoose from "mongoose";
 const userSchema = mongoose.Schema({
     // username: {
     //     type: String,
