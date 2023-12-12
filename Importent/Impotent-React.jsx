@@ -62,7 +62,17 @@ export const users = [
     {id: "2", name: "James", email: "james@test.com", password: "1234"},
 ]
 
- const user = users.find((item) => item.email === credentials.email);
-   if (user?.password === credentials.password) {
-     return user;
-   }
+const user = users.find((item) => item.email === credentials.email);
+ if (user?.password === credentials.password) {
+   return user;
+ }
+
+// ------------------------disabled button dynamically by pending state ------------//
+const [pending, setPending] = useState(false);
+  <button
+    type="submit"
+    className="inline-block rounded-lg bg-blue-500 px-5 py-3 text-sm font-medium text-white"
+    disabled={pending ? true : false}
+  >
+    {pending ? "Registering..." : "Register"}
+  </button>
