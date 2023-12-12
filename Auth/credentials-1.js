@@ -80,6 +80,20 @@ try {
 }
 
 
+//------------------------ root/middleware.js-------------------------//
+import { NextResponse } from 'next/server'
+ 
+// before enter in protected route you are redirected to "login"
+export function middleware(request) {
+  return NextResponse.redirect(new URL('/login', request.url))
+}
+ 
+// protected route path configaration
+export const config = {
+  matcher: ['/about/:path*', '/dashboard/:path*'],
+}
+
+
 //------------------------app/api/register/page.jsx-------------------------//
 "use client";
 import { signIn } from "next-auth/react";
