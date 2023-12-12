@@ -62,9 +62,11 @@ try {
 
 // ----------------------------app/register/page.jsx--------------------------------//
 "use client";
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 
 export default function RegisterPage() {
+  const router = useRouter();
   const [showPasswordText, setShowPasswordText] = useState("password");
   const [info, setInfo] = useState({ email: "", password: "" });
   const [error, setError] = useState("");
@@ -89,6 +91,7 @@ export default function RegisterPage() {
         setPending(false);
         const form = e.target;
         form.reset();
+        router.push("/login");
         console.log("user registered");
       } else {
         console.log("Something went wrong");
@@ -111,7 +114,6 @@ export default function RegisterPage() {
       </div>
 
       <form
-        action=""
         onSubmit={handleSubmit}
         className="mx-auto mb-0 mt-8 max-w-md space-y-4"
       >
@@ -194,8 +196,9 @@ export default function RegisterPage() {
           <button
             type="submit"
             className="inline-block rounded-lg bg-blue-500 px-5 py-3 text-sm font-medium text-white"
+            disabled={pending ? true : false}
           >
-            Register
+            {pending ? "Registering..." : "Register"}
           </button>
         </div>
       </form>
