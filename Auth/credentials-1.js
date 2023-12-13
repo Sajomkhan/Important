@@ -53,8 +53,6 @@ const handler = NextAuth(authOptions);
 export { handler as GET, handler as POST };
 
 
-
-
 //------------------------api/register/route.jsx-------------------------//
 import { connectDB } from "../../utils/connect"
 import User from "../../models/userModel"
@@ -81,17 +79,38 @@ try {
 
 
 //------------------------ root/middleware.js-------------------------//
-import { NextResponse } from 'next/server'
- 
+import { NextResponse } from 'next/server' 
 // before enter in protected route you are redirected to "login"
 export function middleware(request) {
   return NextResponse.redirect(new URL('/login', request.url))
-}
- 
+} 
 // protected route path configaration
 export const config = {
   matcher: ['/about/:path*', '/dashboard/:path*'],
 }
+
+
+//------------------------app/models/userModel.js-------------------------//
+import mongoose from "mongoose";
+const userSchema = mongoose.Schema({
+    // username: {
+    //     type: String,
+    //     require:[true, "Must provide a username"],
+    //     unique: [true, "Must be unique"]
+    // },
+    email: {
+        type: String,
+        require:[true, "Must provide a email"],
+        unique: [true, "Must be unique"]
+    },
+    password: {
+        type: String,
+        require:[true, "Must provide a passowrd"],
+    },
+}, {timestamps: true})
+
+const User = mongoose.models.User || mongoose.model("User", userSchema);
+export default User
 
 
 //------------------------app/api/register/page.jsx-------------------------//
