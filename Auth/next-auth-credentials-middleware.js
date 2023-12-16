@@ -8,8 +8,6 @@
     "next-auth": "^4.24.4",
   },
 
-
-
 //------------------------ utils/connect.js -------------------------//
 import mongoose from "mongoose";
 
