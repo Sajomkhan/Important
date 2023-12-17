@@ -8,6 +8,12 @@
     "next-auth": "^4.24.4",
   },
 
+//------------------------ .env -------------------------//
+DB_URI= mongodb
+
+NEXTAUTH_SECRET = mysicreatkey
+NEXTAUTH_URL=http://localhost:3000/api/auth
+
 //------------------------ utils/connect.js -------------------------//
 import mongoose from "mongoose";
 
