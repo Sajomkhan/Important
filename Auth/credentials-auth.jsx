@@ -119,14 +119,10 @@ import AuthProvider from "./provider/AuthProvider/AuthProvider";
 
 export default function RootLayout({ children }) {
     return (
-      <html lang="en">
-        <body className={`${inter.className} `}>
           <AuthProvider>
             <Navbar />
             {children}
           </AuthProvider>
-        </body>
-      </html>
     );
   }
 
@@ -163,7 +159,16 @@ export default function Navbar() {
   const session = useSession()
   console.log(session);
 
-  return (<div>Navbar</div>)
+  return (
+      <div>
+          Navbar
+          {              {
+            session.status === "authenticated" &&
+            <button onClick={signOut} >
+                Sign Out
+            </button>
+          }
+      </div>)
 }
 
 //------------------------app/api/register/page.jsx-------------------------//
@@ -218,7 +223,6 @@ export default function RegisterPage() {
           Register
         </h1>
       </div>
-
       <form
         onSubmit={handleSubmit}
         className="mx-auto mb-0 mt-8 max-w-md space-y-4"
@@ -227,7 +231,6 @@ export default function RegisterPage() {
           <label htmlFor="username" className="sr-only">
             Username
           </label>
-
           <div className="relative">
             <input
               type="username"
@@ -238,12 +241,10 @@ export default function RegisterPage() {
             />
           </div>
         </div>
-
         <div>
           <label htmlFor="email" className="sr-only">
             Email
           </label>
-
           <div className="relative">
             <input
               type="email"
@@ -254,12 +255,10 @@ export default function RegisterPage() {
             />
           </div>
         </div>
-
         <div>
           <label htmlFor="password" className="sr-only">
             Password
           </label>
-
           <div className="relative">
             <input
               type={showPasswordText}
@@ -268,7 +267,6 @@ export default function RegisterPage() {
               className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
               placeholder="Enter password"
             />
-
             <span
               onClick={() => {
                 showPasswordText === "password"
@@ -306,7 +304,6 @@ export default function RegisterPage() {
         {error && (
           <p className="font-light text-sm text-red-600 ml-4">{error}</p>
         )}
-
         <div className="flex items-center justify-between">
           <p className="flex gap-2 text-sm text-gray-500 ml-4 mr-6">
             Already register? {""}
@@ -314,7 +311,6 @@ export default function RegisterPage() {
               Sign in
             </a>
           </p>
-
           <button
             type="submit"
             className="inline-block rounded-lg bg-blue-500 px-5 py-3 text-sm font-medium text-white"
@@ -344,16 +340,29 @@ export default function LoginPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     const email = e.target[0].value;
     const password = e.target[1].value;
 
     if (email || password) {
       setError("Must provide all the credentials.");
     }
-    signIn("credentials", {email, password})
-
-
+    try {
+      setPending(true);
+      const res = await signIn("credentials", {
+        email: email,
+        password: password,
+        redirect: false,
+      });
+      if (res.error) {
+        setError("Invalid Credentials");
+        setPending(false);
+        return;
+      }
+      router.replace("/dashboard");
+    } catch (error) {
+      console.log("Something went wrong", error.message);
+      setPending(false);
+    }
   };
 
   return (
@@ -361,7 +370,6 @@ export default function LoginPage() {
       <div className="mx-auto max-w-lg text-center">
         <h1 className="text-2xl font-bold sm:text-3xl">Sign in</h1>
       </div>
-
       <form
         onSubmit={handleSubmit}
         className="mx-auto mb-0 mt-8 max-w-md space-y-4"
@@ -370,7 +378,6 @@ export default function LoginPage() {
           <label htmlFor="email" className="sr-only">
             Email
           </label>
-
           <div className="relative">
             <input
               type="email"
@@ -380,7 +387,6 @@ export default function LoginPage() {
             />
           </div>
         </div>
-
         <div>
           <label htmlFor="password" className="sr-only">
             Password
@@ -393,7 +399,6 @@ export default function LoginPage() {
               className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
               placeholder="Enter password"
             />
-
             <span
               onClick={() => {
                 showPasswordText === "password"
@@ -431,7 +436,6 @@ export default function LoginPage() {
         {error && (
           <p className="font-light text-sm text-red-600 ml-4">{error}</p>
         )}
-
         <div className="flex items-center justify-between">
           <p className="text-sm text-gray-500">
             No account?{" "}
@@ -439,7 +443,6 @@ export default function LoginPage() {
               Sign up
             </a>
           </p>
-
           <button
             type="submit"
             className="inline-block rounded-lg bg-blue-500 px-5 py-3 text-sm font-medium text-white"
@@ -454,3 +457,25 @@ export default function LoginPage() {
 }
 
 
+// --------------------------app/dashboard/layout (Protected Route)-----------------------------//
+"use client"
+import { useSession } from "next-auth/react"
+import { useRouter } from "next/navigation";
+
+export default function DashboardLayout({children}) {
+  const router = useRouter()
+  const session = useSession()
+
+  if(session.status === "loading"){
+    return <p>Loading...</p>
+  }  
+  if(session.status === "unauthenticated"){
+    return router.push("/login")
+  }
+
+  return (
+    <section>
+      {children}
+    </section>
+  )
+}
