@@ -39,7 +39,7 @@ const handler = NextAuth({
       name: "Credentials",
 
       async authorize(credentials) {
-        await connectDB;
+        await connectDB();
 
         try {
           const user = await User.findOne({ email: credentials.email });
