@@ -157,11 +157,20 @@ import { usePathname } from "next/navigation";
 export default function Navbar() {
   const pathname = usePathname();
   const session = useSession()
-  console.log(session);
+  const name = session.data?.user?.username;
+  console.log(session.data?.user);
+  console.log(session.status);
 
   return (
-      <div>
-          Navbar
+      <navbar>
+          
+         { name? (
+             <p>{name}</p>
+          ):(
+             <a href="/login">Sign in</a>
+          )
+         }
+          
           {              {
             session.status === "authenticated" &&
             <button onClick={signOut} >
