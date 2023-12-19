@@ -164,7 +164,7 @@ export default function Navbar() {
   return (
       <navbar>
           
-         { name? (
+         { name ? (
              <p>{name}</p>
           ):(
              <a href="/login">Sign in</a>
