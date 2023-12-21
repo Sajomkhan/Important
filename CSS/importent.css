@@ -15,3 +15,30 @@
     background-image: linear-gradient(rgb(0 0 0/25%) 0 0);
   }
 
+/* --------------------input---------------------- */
+  input{
+    padding: 20px;
+    border: 1px solid red
+  }
+  input{
+    outline: 1px solid red;
+  }
+  input::placeholder{
+    color: red
+  }
+
+  /* --------------------image/filter---------------------- */
+  img{
+    filter: saturate(200%); /* when need saturation*/
+    filter: blur(20px);     /* when need blur*/
+  }
+  img:active{
+    filter: none;
+  }
+
+    /* -------------------- aspect-ratio for video player ---------------------- */
+    .player{
+      width: 100%;
+      background-color: black;
+      aspect-ratio: 16/7;
+    }
