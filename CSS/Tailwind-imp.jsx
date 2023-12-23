@@ -24,3 +24,8 @@
 
 /* --------------------- Calc ---------------------- */
 <div className="h-[calc(100vh-95px)]"></div>
+
+/* --------------------- Centerize ---------------------- */
+<div className="flex min-h-screen items-center justify-center">
+  {children}
+</div>
