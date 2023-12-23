@@ -29,3 +29,19 @@
 <div className="flex min-h-screen items-center justify-center">
   {children}
 </div>
+
+/* --------------------- Layout ---------------------- */
+<body className={inter.className}>
+  <div className="fixed top-0 w-full z-50">
+    <Navbar />
+  </div>
+  <div className="hidden fixed top-16 laft-0 z-40 w-72 lg:block">
+    <SideMenu />
+  </div>
+  <div className="hidden fixed top-16 right-0 z-40 w-72 2xl:block">
+    <RightBar />
+  </div>
+  <main className="flex mx-auto mt-20 px-16 lg:ml-72 2xl:mr-72 ">
+    {children}
+  </main>
+</body>
