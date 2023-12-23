@@ -41,7 +41,7 @@
   <div className="hidden fixed top-16 right-0 z-40 w-72 2xl:block">
     <RightBar />
   </div>
-  <main className="flex mx-auto mt-20 px-16 lg:ml-72 2xl:mr-72 ">
+  <main className="flex mx-auto mt-20 px-4 sm:px-12 md:px-20 lg:px-14 lg:ml-72 2xl:mr-72 ">
     {children}
   </main>
 </body>
