@@ -16,6 +16,8 @@ module.exports = {
 
 /** This colors items are added here */
       colors: {
+        primary: "#007dfc",
+        primaryDeep: "#0057fc",
         nav: "#18222f",
         page: "#2b3441",
         card: "#47566a",
