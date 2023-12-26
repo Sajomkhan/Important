@@ -76,3 +76,7 @@ const [pending, setPending] = useState(false);
   >
     {pending ? "Registering..." : "Register"}
   </button>
+
+// ------------------------split and 'at' ------------//
+  const pathname = "/about"
+  console.log(pathname.split('/').at(1));   // output : about
