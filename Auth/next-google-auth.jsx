@@ -13,7 +13,7 @@ NEXTAUTH_SECRET = anyRandomNumber
 
 
 
-// ------------------Install-----------------------------
+// ------------------Installation-----------------------------
 
 
 npm install next-auth
@@ -75,7 +75,7 @@ export { handler as GET, handler as POST}
 
 
 
-// ------------------signin\page.jsx-----------------------------
+// ------------------ app/signin\page.jsx-----------------------------
 
 "use client";
 
@@ -116,7 +116,7 @@ const Signin = () => {
 export default Signin;
 
 
-// --------------------- components /Navebar.jsx--------------------------
+// --------------------- components/Navebar.jsx--------------------------
 
 "use client";
 
