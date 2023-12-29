@@ -15,7 +15,6 @@ NEXTAUTH_SECRET = anyRandomNumber
 
 // ------------------Installation-----------------------------
 
-
 npm install next-auth
 
 
