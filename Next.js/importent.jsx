@@ -1,4 +1,14 @@
 
+
+// ----------------- Suspension ------------//
+          {post && (
+            <Suspense fallback={<div>Loading...</div>}>
+              <PostUser userId={post.userId} />
+            </Suspense>
+          )}
+
+
+
 // direct get data form "formData" and post action without server
 const page = () => {
   
