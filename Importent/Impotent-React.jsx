@@ -55,17 +55,18 @@ export default {
  desc: "Lorem ipson"
 }
 
+
 // ----------------- find data from array of objects ------------//
 
 export const users = [
     {id: "1", name: "Jone", email: "jone@test.com", password: "1234"},
     {id: "2", name: "James", email: "james@test.com", password: "1234"},
-]
-
+] 
 const user = users.find((item) => item.email === credentials.email);
  if (user?.password === credentials.password) {
    return user;
  }
+
 
 // ------------------------disabled button dynamically by pending state ------------//
 const [pending, setPending] = useState(false);
@@ -77,6 +78,15 @@ const [pending, setPending] = useState(false);
     {pending ? "Registering..." : "Register"}
   </button>
 
+
 // ------------------------split and 'at' ------------//
   const pathname = "/about"
   console.log(pathname.split('/').at(1));   // output : about
+
+
+// ----------------- Suspension ------------//
+ {post && (
+     <Suspense fallback={<div>Loading...</div>}>
+         <PostUser userId={post.userId} />
+     </Suspense>
+  )}
