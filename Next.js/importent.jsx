@@ -67,7 +67,9 @@ export const addUser = async (formData) => {
 //   }
 // };
 
-// ----------------- _util/Constants ------------//
-export default {
- desc: "Lorem ipson"
-}
+// ----------------- Suspension ------------//
+          {post && (
+            <Suspense fallback={<div>Loading...</div>}>
+              <PostUser userId={post.userId} />
+            </Suspense>
+          )}
