@@ -98,13 +98,17 @@ export default Layout;
 
 //-------------------- components/Header.tsx ---------------------//
 
-import { SignedOut } from "@clerk/nextjs";
+import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import Link from "next/link";
 
 const Header = () => {
   return (
-    <header >
-      <SignedOut>       // when user is loged out it will automatically invisible for using this 'SignedOut' tag
+    <header >    
+      <SignedIn>        // when user is loged in it will automatically visible user profile picture and info
+        <UserButton afterSignOutUrl="/" />
+      </SignedIn>
+    
+      <SignedOut>       // when user is loged out it will automatically invisible 'Login button' for using this 'SignedOut tag' 
         <Button>
             <Link href='/sign-in'>Login</Link>
         </Button>
