@@ -1,5 +1,6 @@
 // clerk.com  -->  dashboard --> add application --> Next.js[select] --> [coppe the secret key & past in .env.local]
 // --> continue in docs and flow the instruction
+// for custome Sign in and see the docs --> Create custom sign-up and sign-in [at the end]
 
 
 npm install @clerk/nextjs
@@ -61,8 +62,8 @@ export const config = {
 };
 
 
-//--------------------  app/(auth)/sign-in/[[..sign-in] ---------------------//
-// Create a custom Sign-in and Sign-up
+//--------------------  app/(auth)/sign-in/[[..sign-in] ---------------------// for custome Sign in and see the docs --> Create custom sign-up and sign-in [at the end]
+// Creating a custom Sign-in
 import { SignIn } from "@clerk/nextjs";
 
 export default function page(){
