@@ -61,15 +61,21 @@ export const config = {
 };
 
 
-//--------------------  (auth)/sign-in/[[..sign-in] ---------------------//
+//--------------------  app/(auth)/sign-in/[[..sign-in] ---------------------//
+// Create a custom Sign-in and Sign-up
+import { SignIn } from "@clerk/nextjs";
+
+export default function page(){
+    return <SignIn/>
+}
+
+//--------------------  app/(auth)/sign-up/[[..sign-up] ---------------------//
 
 import { SignUp } from "@clerk/nextjs";
 
 export default function page(){
     return <SignUp/>
 }
-
-
 
 //-------------------- (components)/Navbar.tsx ---------------------//
 
