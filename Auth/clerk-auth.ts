@@ -1,5 +1,5 @@
-// clerk.com  -->  dashboard
-// --> add application
+// clerk.com  -->  dashboard --> add application --> Next.js[select] --> [coppe the secret key & past in .env.local]
+// --> continue in docs and flow the instruction
 
 
 npm install @clerk/nextjs
