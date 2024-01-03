@@ -96,33 +96,22 @@ export default Layout;
 
 
 
-//-------------------- (components)/Navbar.tsx ---------------------//
+//-------------------- components/Header.tsx ---------------------//
 
-"use client"
+import { SignedOut } from "@clerk/nextjs";
 import Link from "next/link";
-import { useUser } from "@clerk/nextjs";
-import { UserButton } from "@clerk/nextjs"
 
-export default function Navbar() {
-
-    const {user, isLoaded, isSignedIn} = useUser()
-
+const Header = () => {
   return (
-      <nav>
-        <div className="flex items-center gap-3">
-          <Link href={"/"}>Home</Link>
-          <Link href={"/dashboard"}>Dashboard</Link>
-          // SignOut button invesible when user not signin
-          {
-            isLoaded && user &&
-            <>
-               <UserButton afterSignOutUrl="/" />
-            </>
-          }
-        </div>
-      </nav>
+    <header >
+      <SignedOut>       // when user is loged out it will automatically invisible for using this 'SignedOut' tag
+        <Button>
+            <Link href='/sign-in'>Login</Link>
+        </Button>
+      </SignedOut>
+    </header>
   );
-}
+};
 
 // ---------------------home.tsx-----------------------//
 import { auth,  } from '@clerk/nextjs/server'
