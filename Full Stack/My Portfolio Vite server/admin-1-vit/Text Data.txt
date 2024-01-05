@@ -1,0 +1,13 @@
+
+-----------------------------------Project------------------------------------------
+Food shop App (ecommerce)
+MERN
+https://github.com/Sajomkhan/ecommerce-food-shop-app-react-redux-tailwined
+https://food-shop-app-react-redux-tailwined.netlify.app/
+A full mobile responsive ecommerce app. The technologies what are used here - React.js, Redux, Node.js, Express.js, MongoDB, Tailwindcss, React-Icon.
+
+Cloth Store App (ecommerce)
+MERN
+https://github.com/Sajomkhan/ecommerce-store-app-react-redux-tailwind-material-ui
+https://ecommerce-store-react-redux-tailwind.netlify.app/
+A full mobile responsive ecommerce app. The technologies what are used here - React.js, Redux, Node.js, Express.js, MongoDB, Tailwindcss, Material-ui.
