@@ -14,10 +14,13 @@ const withPWA = require('next-pwa')({
 module.exports = withPWA(nextConfig)
 
 
+// ========================================//
+
 // goole search --> Next js pwa mainifest generator 
 // go to --> https://www.simicart.com/manifest-generator.html/
 // fill the form and click --> Generate Menifest (it will auto download manifest file)
 // past the menifest file to the --> public folder
+
 
 // ================= app/public/manifest.webmanifest ==================//
 // this file is downloaded
