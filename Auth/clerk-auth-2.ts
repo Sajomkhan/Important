@@ -146,11 +146,39 @@ export default function Home() {
 // create a file same the bellow path
 
 
+// --------------------- lib/action/user.actions.ts ----------------------//
+//-----------------
+export const handleError = (error: unknown) => {
+  console.error(error)
+  throw new Error(typeof error === 'string' ? error : JSON.stringify(error))
+}
+//-----------------
+
+"use server";
+import { CreateUserParams } from "@/types";
+import { handleError } from "../utils";
+import { connectToDatabase } from "../database";
+import User from "../database/models/user.model";
+
+export const createUser = async (user: CreateUserParams) => {
+  try {
+    await connectToDatabase();
+    const newUser = await User.create(user)
+    return JSON.parse(JSON.stringify(newUser))
+    
+  } catch (error) {
+    handleError(error);
+  }
+};
+
 // --------------------- app/api/webhook/clerk/route.ts ----------------------//
 
 import { Webhook } from 'svix'
 import { headers } from 'next/headers'
 import { WebhookEvent } from '@clerk/nextjs/server'
+import { createUser } from '@/lib/actions/user.actions'
+import { clerkClient } from '@clerk/nextjs'
+import { NextResponse } from 'next/server'
  
 export async function POST(req: Request) {
  
@@ -201,24 +229,36 @@ export async function POST(req: Request) {
   const { id } = evt.data;
   const eventType = evt.type;
 
- //Only Keep Eye Here====================//
+ //===================== Only Keep Eye Here & wrote code here
 
 if(eventType === 'user.created'){
-    const { id, email_addresses, image_url, first_name, last_name, username } = evt.data
+    const { id, email_addresses, image_url, first_name, last_name, username } = evt.data   // received data from clark by webhook
     
     const user = {
         clerkId: id,
         email: email_addresses[0].email_address,
-        username: username,
+        username: username!,
         firstName: first_name,
-        lastName: last_name
+        lastName: last_name,
+        photo: image_url
     }
-    const newUser = await createUser(user);
-}
+    
+    const newUser = await createUser(user);  // create user in database
 
- //=========================
+    if(newUser){
+      await clerkClient.users.updateUserMetadata(id, {    //send database user referance id to clark
+        publicMetadata: {
+          userId: newUser._id
+        }
+      })
+    }
+
+    return NextResponse.json({ message: 'OK', user: newUser })
+}
+ //============================
 
   return new Response('', { status: 200 })
 }
+ 
  
  
