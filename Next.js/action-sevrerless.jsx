@@ -22,7 +22,7 @@ const page = () => {
 export default page;
 
 
-//----------------action.js-----------------------------//
+//==================== root/lib/action.js========================//
 import { connectDB } from "./connection";
 import { User } from "./models";
 
