@@ -1,3 +1,4 @@
+//------------------ roote/lib/conntect.js (lama dev) -----------------//
 require("dotenv").config()
 const mongoose = require('mongoose');
 
@@ -14,7 +15,7 @@ const connectDB = async () => {
 
 
 
-//------------------for Next.js (lama dev) -----------------//
+//------------------ roote/lib/utils.js (lama dev) -----------------//
 // check if db connected for first time
 
 import mongoose from "mongoose";
@@ -31,6 +32,30 @@ export const connectDB = async () => {
     throw new Error(error);
   }
 };
+
+
+//------------------ roote/lib/utils.js (lama dev) -----------------for cached
+// This example for cached connection
+import mongoose from 'mongoose';
+
+const MONGODB_URI = process.env.MONGODB_URI;
+
+let cached = (global as any).mongoose || { conn: null, promise: null };
+
+export const connectToDatabase = async () => {
+  if (cached.conn) return cached.conn;
+
+  if(!MONGODB_URI) throw new Error('MONGODB_URI is missing');
+
+  cached.promise = cached.promise || mongoose.connect(MONGODB_URI, {
+    dbName: 'evently',
+    bufferCommands: false,
+  })
+
+  cached.conn = await cached.promise;
+
+  return cached.conn;
+}
 
 
 //------------------for Next.js-----------------//
