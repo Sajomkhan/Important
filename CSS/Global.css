@@ -72,18 +72,6 @@ select{
   background: linear-gradient(to bottom, #194c33, #bbb);
 }
 
-.Pending{
-  background-color: #f7cb7375;
-}
-
-.Done{
-  background-color: #afd6ee75;
-}
-
-.Cancelled{
-  background-color: #f7737375;
-}
-
 
 /* -------------------------------------------------------------------------------- */
 
