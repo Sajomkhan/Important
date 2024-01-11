@@ -18,7 +18,7 @@
         </form>
 
 // -----------------image background -------------- //
-        <div className='h-screen w-screen bg-cover bg-center bg-[url("/image/hero.png")]'>
+        <div className='h-screen w-screen bg-cover bg-center bg-[url("/image/hero.png")]'>        // image location:  public/image/hero
           <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 ">
             {children}
           </div>
