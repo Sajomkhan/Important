@@ -1,5 +1,5 @@
 
-// Grid System & uses var
+// ------------------Grid System & uses var----------------------//
 
         <form className="grid grid-cols-6 gap-4 mb-5 text-[var(--textLight)]">
           <input
@@ -16,3 +16,10 @@
             +
           </button>
         </form>
+
+// -----------------image background -------------- //
+        <div className='h-screen w-screen bg-cover bg-center bg-[url("/image/hero.png")]'>
+          <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 ">
+            {children}
+          </div>
+        </div>
