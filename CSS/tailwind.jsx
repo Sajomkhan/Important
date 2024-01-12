@@ -25,7 +25,7 @@
           </div>
         </div>
 
-// -----------------image background with blund over extra layer -------------- //
+// -----------------image background with overlay -------------- //
                 
     <div className="relative">
       <Image
