@@ -17,6 +17,11 @@
           </button>
         </form>
 
+
+// -----------------image background -------------- //
+
+<section className="bg-hero-bg md:h-screen bg-cover bg-center font-Barlow pb-2">
+
 // -----------------image background -------------- //
                 
         <div className='h-screen w-screen bg-cover bg-center bg-[url("/image/hero.png")]'>        // image location:  public/image/hero
@@ -37,3 +42,4 @@
       />
       <div className="w-full h-[540px] absolute -z-10 bg-teal-100/70" />
     </div>
+            
