@@ -1,4 +1,11 @@
 
+// ------------------Line breaking correct rendaring-----------------//
+
+<p className="whitespace-pre-wrap">
+     {services.desc}
+ </p>
+
+
 // ------------------Calculate the sum of the price values-----------------//
  const [items, setItems] = useState([
     { name: "Coffee", price: "6.55" },
