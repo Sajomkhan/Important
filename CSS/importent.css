@@ -1,3 +1,8 @@
+/* ----------Line break rendaring-------------- */
+.whitespace-pre-wrap {
+    white-space: pre-wrap;
+}
+
 /* ----------Gradient-------------- */
 .gradient{
     background: linear-gradient(to bottom, #194c33, #bbb);
