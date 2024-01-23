@@ -1,0 +1,66 @@
+
+/============================= app/page.tsx ================================//
+"use client";
+
+import { useState } from "react";
+
+export default function Home() {
+  const [file, setFile] = useState<File>();
+
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!file) return;
+
+    try {
+      const data = new FormData();
+      data.set("file", file);
+
+      const res = await fetch("/api/upload", {
+        method: "POST",
+        body: data,
+      });
+      if (!res.ok) throw new Error();
+    } catch (error: any) {
+      console.log(error);
+    }
+  };
+
+  return (
+    <main className="w-full flex justify-center items-center">
+      <form onSubmit={onSubmit} className="bg-slate-300 shadow-md w-[700px] flex flex-col gap-6 items-center p-8">
+        <input
+          type="file"
+          name="file"
+          onChange={(e) => setFile(e.target.files?.[0])}
+        />
+        <button type="submit">Submit</button>
+      </form>
+    </main>
+  );
+}
+
+
+
+/============================= app/api/upload/route.ts ================================//
+
+import { writeFile } from "fs/promises";
+import { NextRequest, NextResponse } from "next/server";
+import { join } from "path";
+
+export async function POST(request: NextRequest) {
+  const data = await request.formData();
+  const file: File | null = data.get("file") as unknown as File;
+
+  if (!file) {
+    return NextResponse.json({ succrss: false, message: "No file submitted" });
+  }
+
+  const bytes = await file.arrayBuffer();
+  const buffer = Buffer.from(bytes);
+
+  const path = join("/Web/1 Practic/upload-next-13", "tmp", file.name);     // roote file : "/Web/1 Practic/upload-next-13"
+  await writeFile(path, buffer);
+  console.log(`Open ${path} to see the uploaded file`);
+
+  return NextResponse.json({ success: true, message: "File was send" });
+}
