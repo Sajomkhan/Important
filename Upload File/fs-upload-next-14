@@ -45,7 +45,7 @@ export default function Home() {
 
 import { writeFile } from "fs/promises";
 import { NextRequest, NextResponse } from "next/server";
-import { join } from "path";
+import path, { join } from "path";
 
 export async function POST(request: NextRequest) {
   const data = await request.formData();
@@ -57,6 +57,14 @@ export async function POST(request: NextRequest) {
 
   const bytes = await file.arrayBuffer();
   const buffer = Buffer.from(bytes);
+
+  // Get the current file path
+  // const currentFilePath = __filename;
+  // console.log('Current file path:', currentFilePath);
+
+  // Get the directory of the current file
+  // const currentFileDir = path.dirname(__filename);
+  // console.log('Current file directory:', currentFileDir);
 
   const path = join("/Web/1 Practic/upload-next-13", "tmp", file.name);     // roote file : "/Web/1 Practic/upload-next-13"
   await writeFile(path, buffer);
