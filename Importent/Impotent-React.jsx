@@ -91,9 +91,43 @@ const [pending, setPending] = useState(false);
   console.log(pathname.split('/').at(1));   // output : about
 
 
+// ------------------------split subsring' ------------//
+
+<p className="text-sm">{services.desc.substring(0, 80)}...</p>
+
+
 // ----------------- Suspension ------------//
  {post && (
      <Suspense fallback={<div>Loading...</div>}>
          <PostUser userId={post.userId} />
      </Suspense>
   )}
+
+
+// ----------------- window scroll event ------------//
+
+export default function Home() {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    // Function to handle scroll events
+    const handleScroll = () => {
+      const shouldAddClass = window.scrollY > 100; // Adjust the value as needed
+      setIsScrolled(shouldAddClass);
+    };
+
+    // Add scroll event listener
+    window.addEventListener("scroll", handleScroll);
+
+    // Remove the scroll event listener when the component is unmounted
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+ return (
+    <main className="space-y-10 md:space-y-24">
+      <Hero />
+    </main>
+  );
+}
