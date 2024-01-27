@@ -17,6 +17,7 @@
   <script>
     const ages = [ 32, 33, 16, 40 ]
     document.getElementById('demo').innerHTML= ages.filter((age) => age >= 18)
+       // Result: 32, 33, 40
   </script>
 
   <script>
@@ -26,9 +27,12 @@
       return age >= 18
     }
     document.getElementById('demo').innerHTML= result
+        // Result: 32, 33, 40
   </script>
+    
 
 //-------------------- for loops -------------------//
+    
  <script>
    const ages = [32, 33, 16, 40];
 
@@ -37,11 +41,79 @@
         text += ages[i] + "<br>";
     }     
     document.getElementById('demo').innerHTML = text
+        // Resul: 32 33 16 40
  </script>
+    
 
-//-------------------- xxxxxx -------------------//
-//-------------------- xxxxxx -------------------//
-//-------------------- xxxxxx -------------------//
-//-------------------- xxxxxx -------------------//
+//-------------------- for/in -------------------//
+    
+ <script>
+      const person = { fname: "John", lname: "Doe", age: 25 };
+
+      let txt = "";
+      for (let x in person) {
+        txt += person[x] + " ";
+      }
+          // Result: John Doe 25
+      document.getElementById("demo").innerHTML = txt; 
+</script>
+    
+    
+//-------------------- for/of -------------------//
+    
+ <script>
+      const cars = ["BMW", "Volvo", "Mini"];
+
+      let text = "";
+      for (let x of cars) {
+        text += x + "<br>";
+      }
+      document.getElementById("demo").innerHTML = text;
+      // Result:  BMW <br> Volvo <br> Mini
+</script>
+    
+//-------------------- Switch -------------------//
+<script>
+    let day;
+    switch (new Date().getDay()) {
+      case 0:
+        day = "Sunday";
+        break;
+      case 1:
+        day = "Monday";
+        break;
+      case 2:
+        day = "Tuesday";
+        break;
+      case 3:
+        day = "Wednesday";
+        break;
+      case 4:
+        day = "Thursday";
+        break;
+      case 5:
+        day = "Friday";
+        break;
+      case  6:
+        day = "Saturday";
+    }
+document.getElementById("demo").innerHTML = "Today is " + day;
+</script>
+
+    
+//-------------------- forEach -------------------//
+    
+<script>
+      let sum = 0;
+      const numbers = [15, 10, 25];
+      numbers.forEach(myFunction);
+      
+      function myFunction(item) {
+        sum += item;
+      }
+      document.getElementById("demo").innerHTML = sum;
+        // Result: 50
+</script>
+    
 //-------------------- xxxxxx -------------------//
 //-------------------- xxxxxx -------------------//
