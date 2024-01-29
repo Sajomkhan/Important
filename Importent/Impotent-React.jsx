@@ -62,6 +62,10 @@ export default {
  desc: "Lorem ipson"
 }
 
+// ----------------- Sorting object ------------//
+import { projects } from "../data/data";
+// const { projectId, title, key_techs, github, live, desc, image } = project;
+const sortedArray = projects.slice().sort((a, b) => a.projectId - b.projectId);
 
 // ----------------- find data from array of objects ------------//
 
