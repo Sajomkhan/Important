@@ -1,3 +1,36 @@
+// npm i bcryptjs
+// npm i jsonwebtoken
+// npm i cookie-parser
+// npm i dotenv
+
+
+//==================== index ======================//
+import cookieParser from "cookie-parser";
+import dotenv from "dotenv";
+
+dotenv.config();
+
+app.use(cookieParser())
+
+
+//==================== .env ======================//
+JWT = "my jwt secret"
+
+//==================== routes/auth.js ======================//
+
+import express from 'express'
+import { signin, signup } from '../controllers/auth.js';
+
+const router = express.Router();
+
+// CREATE A USER
+router.post("/signup", signup)
+
+// SIGN IN
+router.post("/signin", signin)
+
+export default router;
+
 
 //==================== controllers/auth.js ======================//
 
@@ -45,27 +78,3 @@ export const signin = async (req, res, next) => {
   }
 };
 
-
-
-//==================== routes/auth.js ======================//
-
-import express from 'express'
-import { signin, signup } from '../controllers/auth.js';
-
-const router = express.Router();
-
-// CREATE A USER
-router.post("/signup", signup)
-
-// SIGN IN
-router.post("/signin", signin)
-
-export default router;
-
-
-
-
-//==================== index ======================//
-import cookieParser from "cookie-parser";
-
-app.use(cookieParser())
