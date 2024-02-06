@@ -5,6 +5,18 @@
      {services.desc}
  </p>
 
+// ------------------Push properties and value in an object-----------------//
+const about = {
+  name: "ajom",
+  age: 19,
+}
+
+function add (){
+  about.address = "Pasgsha"
+  console.log(about);
+}
+add()
+
 
 // ------------------Calculate the sum of the price values-----------------//
  const [items, setItems] = useState([
