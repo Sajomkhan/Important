@@ -5,7 +5,7 @@
 
 /* ----------Gradient-------------- */
 .gradient{
-    background: linear-gradient(to bottom, #194c33, #bbb);
+  background: linear-gradient(to bottom, #194c33, #bbb);
 }
 
 /* ----------Title Case-----Text Transform-------------- */
@@ -41,7 +41,7 @@
     filter: none;
   }
 
-    /* -------------------- aspect-ratio for video player ---------------------- */
+    /* ----------- aspect-ratio for video player ------------- */
     .player{
       width: 100%;
       background-color: black;
@@ -52,3 +52,5 @@
     article{
       scroll-padding: 1rem 0 0 0;
     }
+
+   /* ------------------ Clip-path-------------------- */ 

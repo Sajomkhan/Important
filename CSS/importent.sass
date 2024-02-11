@@ -1,0 +1,15 @@
+
+/* ------------------ Clip-path-------------------- */ 
+
+    .container{
+        width: 30%;
+
+        .inner{
+            clip-path: circle(50% at 0% 0%);
+            transition: clip-path .5s ease-in-out;
+        }
+        
+        &:hover .inner{
+            clip-path: circle(75%);
+        }
+    }
