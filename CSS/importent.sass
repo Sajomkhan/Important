@@ -1,5 +1,5 @@
 
-/* ------------------ Clip-path-------------------- */ 
+// ====================== Clip-path ======================//
 
     .container{
         width: 30%;
@@ -13,3 +13,31 @@
             clip-path: circle(75%);
         }
     }
+
+// ====================== Pseudo ::befor ::after ======================//
+.inner{
+    width: 350px;
+    height: 250px;
+    background: linear-gradient(to bottom right, #F5CCA0, #E48F45);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: justify;
+
+    &::before{
+        content: "";
+        background: #994D1C;
+        height: 5px;
+        display: block;
+    }
+    &::after{
+        content: "This is pseudo after";
+        background: #994D1C;
+        display: block;
+        padding: 5px;
+        margin: 10px 0;
+    }
+
+    h1{
+        margin-bottom: 10px;
+    }
+}
