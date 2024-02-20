@@ -54,6 +54,11 @@
     }
 
 /* ------------------ inset-------------------- */ 
+/* Note: inset is only applicable when position is absolute */
+    <div id="patent-div">
+        <div id="child-div"></div>
+    </div>
+
     #parent-div{
       position: relative;
       width: 60%;
