@@ -53,4 +53,15 @@
       scroll-padding: 1rem 0 0 0;
     }
 
-   /* ------------------ Clip-path-------------------- */ 
+/* ------------------ inset-------------------- */ 
+    #parent-div{
+      position: relative;
+      width: 60%;
+      height: 250px;
+      border: solid black 1px;
+    }
+    #child-div{
+      position: absolute;
+      background-color: lightblue;
+      inset: 35px;
+    }
