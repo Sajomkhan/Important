@@ -70,3 +70,13 @@
       background-color: lightblue;
       inset: 35px;
     }
+
+/* ------------------------ Set the letter spacing -------------------------- */
+/* for tailwindcss use className="tracking-wider"  */
+h2 {
+  letter-spacing: 2px;
+}
+
+h3 {
+  letter-spacing: -1px;
+}
