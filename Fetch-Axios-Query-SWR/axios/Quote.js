@@ -1,12 +1,14 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
+axios.defaults.baseURL = 'http://localhost:5010/api';
+
 export default function Quote() {
     const [quote, setQuote] = useState(null);
 
     useEffect(() => {
         const fetchQuote = async () => {
-            const res = await axios.get("http://api.quotable.io/random");
+            const res = await axios.get("/user");
             setQuote(res.data);
         };
 
