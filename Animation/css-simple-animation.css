@@ -1,0 +1,37 @@
+/* ================ index.html ================== */
+
+<div class="hero">
+  <div class="content">
+    <h1 class="anim">Make<br /></h1>
+    <p class="anim">Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio accusamus nemo eum. Vel ex, consequuntur quae quia accusamus voluptatem harum!</p>
+    <a href="#" class="btn anim">Join Now</a>
+  </div>
+</div>
+<img src="images/pic.png" alt="model image" class="fetcher-image anim">
+
+/* ================ style.css ================== */
+
+.content .btn{
+    padding: 15px 80px;
+    font-size: 16px;
+    /* animate delay 0.5s*/
+    animation-delay: 0.5s;
+}
+/* nospace between this two class */
+.fetcher-image.anim { 
+    /* animate delay 0.5s*/
+    animation-delay: 0.5s;
+}
+
+.anim{
+    opacity: 0;
+    transform: translateY(30px);
+    animation: moveup 0.5s linear forwards;
+}
+
+@keyframes moveup{
+    100%{
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}

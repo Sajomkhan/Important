@@ -53,4 +53,30 @@
       scroll-padding: 1rem 0 0 0;
     }
 
-   /* ------------------ Clip-path-------------------- */ 
+/* ------------------ inset-------------------- */ 
+/* Note: inset is only applicable when position is absolute */
+    <div id="patent-div">
+        <div id="child-div"></div>
+    </div>
+
+    #parent-div{
+      position: relative;
+      width: 60%;
+      height: 250px;
+      border: solid black 1px;
+    }
+    #child-div{
+      position: absolute;
+      background-color: lightblue;
+      inset: 35px;
+    }
+
+/* ------------------------ Set the letter spacing -------------------------- */
+/* for tailwindcss use className="tracking-wider"  */
+h2 {
+  letter-spacing: 2px;
+}
+
+h3 {
+  letter-spacing: -1px;
+}

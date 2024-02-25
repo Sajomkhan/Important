@@ -1,0 +1,8 @@
+
+min-h-[calc(100vh-66px)]
+
+/* ----------------- Set the letter spacing ----------------- */
+className="tracking-wider" 
+
+/* ----------------- Line break rendaring ----------------- */
+className="whitespace-pre-wrap"
