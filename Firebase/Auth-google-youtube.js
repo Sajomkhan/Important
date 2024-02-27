@@ -47,8 +47,58 @@ const signInWithGoogle = async () => {
     <div>
         <Button onClick={signInWithGoogle}>Signin with Google</Button>
     </div>
-
   );
 };
-
 export default SignIn;
+
+
+// ================= server/controller/auth.js =================//
+export const googleAuth = async (req, res, next) => {
+  try {
+    const user = User.findOne({ email: req.body.email });
+    if (user) {
+      const token = jwt.sign({ id: user._id }, process.env.JWT);
+      res
+        .cookie("access_token", token, {
+          httpOnly: true,
+        })
+        .status(200)
+        .json(user._doc);
+    } else {
+      const newUser = new User({
+        ...req.body,
+        fromGoogle: true,
+      });
+      const savedUser = await newUser.save();
+      const token = jwt.sign({ id: user._id }, process.env.JWT);
+      res
+        .cookie("access_token", token, {
+          httpOnly: true,
+        })
+        .status(200)
+        .json(savedUser._doc);
+    }
+  } catch (err) {
+    next(err);
+  }
+};
+
+// ================= server/models/User.js =================//
+import mongoose from "mongoose";
+
+const UserSchema = new mongoose.Schema(
+  // Just Add These for preserve google data
+  {
+    fromGoogle: {
+      type: Boolean,
+      default: false,
+    }
+  },
+  { timestamps: true }
+);
+
+export default mongoose.model("User", UserSchema)
+
+
+
+  
