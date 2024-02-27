@@ -5,6 +5,10 @@
      {services.desc}
  </p>
 
+// ------------------ useLocation split-----------------//
+import { useLocation } from "react-router-dom";
+const path = useLocation().pathname.split("/")[2]
+
 // ------------------Push properties and value in an object-----------------//
 const about = {
   name: "ajom",
