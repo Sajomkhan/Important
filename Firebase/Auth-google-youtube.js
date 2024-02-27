@@ -25,11 +25,23 @@ import { signInWithPopup } from "firebase/auth";
 
 const SignIn = () => {
     
-const signInWithGoogle = () => {
-    signInWithPopup(auth, provider).then((result) => {
-      console.log(result);
-    }).catch(error=>{console.log(error);})
-  };
+const signInWithGoogle = async () => {
+  dispatch(logingStart);
+  signInWithPopup(auth, provider)
+    .then((result) => {
+      axios
+        .post("/auth/google", {
+          name: result.user.displayName,
+          email: result.user.email,
+          img: result.user.photoURL,
+        })
+        .then((res) => {
+          dispatch(logingSuccess(res.data));
+        });
+    })
+    .catch((error) => {
+      dispatch(logingFailure())
+    });
 
   return (
     <div>
