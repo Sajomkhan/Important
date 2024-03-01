@@ -1,4 +1,4 @@
-/* ================ index.html ================== */
+/* ================ forword animation ================== */
 
 <div class="hero">
   <div class="content">
@@ -9,7 +9,6 @@
 </div>
 <img src="images/pic.png" alt="model image" class="fetcher-image anim">
 
-/* ================ style.css ================== */
 
 .content .btn{
     padding: 15px 80px;
@@ -34,4 +33,33 @@
         opacity: 1;
         transform: translateY(0px);
     }
+}
+
+/* ================ infinite rotate animate ================== */
+  <div class="container">
+    <div class="card"></div>
+  </div>
+
+.card{
+    margin: auto;
+    border: 2px solid gray;
+    width: 40px;
+    height: 200px;
+    animation: animate linear 5s infinite;
+}
+@keyframes animate {
+    100%{ rotate: 360deg;}
+}
+
+.card::after{
+    content: ".";
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;;
+    background-color: green;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
 }
