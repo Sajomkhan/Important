@@ -20,19 +20,8 @@
       </div>
     </div>
     <img src="images/pic.png" alt="model image" class="fetcher-image anim">
-  </body>
+</body>
 
-
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
-}
-
-a{
-    text-decoration: none;
-}
 
 .hero{
     width: 100%;
