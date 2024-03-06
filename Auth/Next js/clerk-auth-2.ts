@@ -60,7 +60,7 @@ export const config = {
 };
 
 
-//--------------------  app/(auth)/sign-in/[[..sign-in] ---------------------// for custome Sign in and see the docs --> Create custom sign-up and sign-in [at the end]
+//--------------------  app/(auth)/sign-in/[[..sign-in]/page.tsx ---------------------// for custome Sign in and see the docs --> Create custom sign-up and sign-in [at the end]
 // Creating a custom Sign-in
 import { SignIn } from "@clerk/nextjs";
 
@@ -68,7 +68,7 @@ export default function page(){
     return <SignIn/>
 }
 
-//--------------------  app/(auth)/sign-up/[[..sign-up] ---------------------//
+//--------------------  app/(auth)/sign-up/[[..sign-up]/page.tsx ---------------------//
 
 import { SignUp } from "@clerk/nextjs";
 
