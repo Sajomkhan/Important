@@ -59,6 +59,13 @@ export const config = {
   matcher: ['/((?!.+\\.[\\w]+$|_next).*)', '/', '/(api|trpc)(.*)'],
 };
 
+//-------------------- .env.local ---------------------//
+// for custom sign-in and sign-up add in  .env.local 
+NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
+NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
+NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL=/
+NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL=/
+
 
 //--------------------  app/(auth)/sign-in/[[..sign-in]/page.tsx ---------------------// for custome Sign in and see the docs --> Create custom sign-up and sign-in [at the end]
 // Creating a custom Sign-in
@@ -75,13 +82,6 @@ import { SignUp } from "@clerk/nextjs";
 export default function page(){
     return <SignUp/>
 }
-
-//-------------------- .env.local ---------------------//
-// for custom sign-in and sign-up add in  .env.local 
-NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
-NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
-NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL=/
-NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL=/
 
 //--------------------  app/(auth)/layout.tsx ---------------------// for centerize login page
 const Layout = ({ children }: { children: React.ReactNode }) => {
@@ -116,6 +116,33 @@ const Header = () => {
     </header>
   );
 };
+
+//-------------------- components/LeftSidebar.tsx ---------------------//
+import { usePathname, useRouter } from "next/navigation";
+import { SignOutButton, SignedIn, useAuth } from "@clerk/nextjs";
+
+const LeftSidebar = () => {
+  
+  const pathname = usePathname();
+  const router = useRouter();
+  const {userId} = useAuth()
+  
+  return (
+    <SignedIn>
+        <SignOutButton signOutCallback={() => router.push("/sign-in")}>
+          <div className='flex cursor-pointer gap-4 p-4'>
+            <Image
+              src="/assets/logout.svg"
+              alt="logout"
+              width={24}
+              height={24}
+            />
+            <p className='text-light-2 max-lg:hidden'>Logout</p>
+          </div>
+        </SignOutButton>
+      </SignedIn>
+  )
+}
 
 // ---------------------home.tsx-----------------------//
 import { auth,  } from '@clerk/nextjs/server'
