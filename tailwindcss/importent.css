@@ -9,3 +9,9 @@ className="whitespace-pre-wrap"
 
 /* ----------------- Latter Spaching ----------------- */
 className="tracking-wider"
+
+/* ----------------- Hidden if <= md screen----------------- */
+className="max-md:hidden"
+
+/* ----------------- Hidden if > md screen----------------- */
+className="md:hidden"
