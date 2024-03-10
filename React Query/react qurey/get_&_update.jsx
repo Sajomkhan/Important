@@ -54,7 +54,7 @@ export default experienceApi;
 
 // ------------------create experience-------------------//
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { updateExperience } from "../../api/experienceApi";
+import { getExperience, updateExperience } from "../../api/experienceApi";
 
 const [formData, setFormData] = useState();
 
@@ -64,7 +64,6 @@ const { data, isLoading, isError, error} = useQuery({
   queryKey: ["experience"],
   queryFn: getExperience,
 })
-
 
 
 // update experience data
