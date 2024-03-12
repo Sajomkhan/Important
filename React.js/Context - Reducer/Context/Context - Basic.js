@@ -72,7 +72,7 @@ const Users = () => {
 export default Users
 
 
-// -------------------------------src/component/User---------------------------------- //
+// ------------------------------- src/component/User.jsx ---------------------------------- //
 
 import { useUsersContext } from "../hooks/useUsersContext";
 
@@ -102,7 +102,7 @@ const User = ({ user }) => {
 export default User;
 
 
-// -------------------------------src/component/NewUser---------------------------------- //
+// ------------------------------- src/component/NewUser.jsx ---------------------------------- //
 
 import { useState } from "react";
 import { useUsersContext } from "../hooks/useUsersContext";
