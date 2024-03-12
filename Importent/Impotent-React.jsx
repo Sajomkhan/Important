@@ -1,5 +1,5 @@
 
-// ------------------Line breaking correct rendaring-----------------//
+// ------------------Line breaking rendaring correction -----------------//
 
 <p className="whitespace-pre-wrap">
      {services.desc}
