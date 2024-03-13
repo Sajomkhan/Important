@@ -1,9 +1,9 @@
-/* ----------Line break rendaring-------------- */
+/* ---------- Line break rendaring -------------- */
 .whitespace-pre-wrap {
     white-space: pre-wrap;
 }
 
-/* ----------Gradient-------------- */
+/* ---------- Gradient -------------- */
 .gradient{
   background: linear-gradient(to bottom, #194c33, #bbb);
 }
