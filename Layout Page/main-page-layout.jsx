@@ -16,3 +16,10 @@
   </main>
 </body>
 </html>
+
+  // ====================== app/page.jsx =====================//
+    <div className='max-w-7xl mx-auto'>
+      <Navbar />
+      <UploadFrom />
+      <ImageGallery />
+    </div>
