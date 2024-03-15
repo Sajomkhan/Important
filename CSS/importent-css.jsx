@@ -1,6 +1,6 @@
 
 
-// ====================== normal layout =====================//
+// ====================== Normal layout =====================//
 
     <div className="max-w-7xl mx-auto px-4 space-y-8">
       <Navbar />
