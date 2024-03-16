@@ -1,5 +1,5 @@
 
-// ================= src/firebase.js =================//
+// ================= src/firebase/config.jsx =================//
 import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider } from "firebase/auth";
 
@@ -19,7 +19,7 @@ export const provider = new GoogleAuthProvider()
 
 // ================= Signin.js =================//
 
-import { auth, provider } from "../firebase";
+import { auth, provider } from "../firebase/config.jsx";
 import { signInWithPopup } from "firebase/auth";
 
 const SignIn = () => {
