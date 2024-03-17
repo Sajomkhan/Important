@@ -7,6 +7,7 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { GoogleAuthProvider } from "firebase/auth/cordova";
+import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCPBaSB9aRLO08qTOv0uYXBl1IbjEh56P0",
@@ -19,8 +20,12 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 
-export const auth = getAuth(app)
-export const googleAuthProvider = new GoogleAuthProvider()
+const auth = getAuth(app)
+const googleAuthProvider = new GoogleAuthProvider()
+const storage = getStorage(app)
+
+export { auth, googleAuthProvider, storage}
+
 
 
 //===============  =================//
