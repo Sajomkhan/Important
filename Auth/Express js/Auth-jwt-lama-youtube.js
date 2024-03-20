@@ -3,13 +3,11 @@
 // npm i cookie-parser
 // npm i dotenv
 
-
 //==================== index ======================//
 import cookieParser from "cookie-parser";
 import dotenv from "dotenv";
 
 dotenv.config();
-
 app.use(cookieParser())
 
 
