@@ -1,5 +1,5 @@
 
-// ================= src/firebase/config.jsx =================//
+// ================= src/firebase/config.jsx ================= //
 import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider } from "firebase/auth";
 
@@ -17,7 +17,7 @@ export const auth =getAuth(app);
 export const provider = new GoogleAuthProvider()
 
 
-// ================= Signin.js =================//
+// ================= Signin.js ================= //
 
 import { auth, provider } from "../firebase/config.jsx";
 import { signInWithPopup } from "firebase/auth";
@@ -51,7 +51,7 @@ const signInWithGoogle = async () => {
 export default SignIn;
 
 
-// ================= server/controller/auth.js =================//
+// ================= server/controller/auth.js ================= //
 export const googleAuth = async (req, res, next) => {
   try {
     const user = User.findOne({ email: req.body.email });
