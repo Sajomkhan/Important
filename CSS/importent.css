@@ -48,6 +48,12 @@
       aspect-ratio: 16/7;
     }
 
+ /* -------------------- Responsive ---------------------- */ 
+    .content{
+        font-size: 3vw;
+        font-size: max(5vw,14px);
+    }
+
  /* --------------------article---------------------- */ 
     article{
       scroll-padding: 1rem 0 0 0;
@@ -55,7 +61,7 @@
 
 /* ------------------ inset-------------------- */ 
 /* Note: inset is only applicable when position is absolute */
-    <div id="patent-div">
+    <div id="parent-div">
         <div id="child-div"></div>
     </div>
 
