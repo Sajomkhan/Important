@@ -87,17 +87,17 @@ h3 {
   letter-spacing: -1px;
 }
 
- /* --------------------Fade-In Animation Effect---------------------- */ 
- /* --- index.css --- */ 
+/* --------------------Fade-In Animation Effect---------------------- */ 
+    /* --- index.css --- */ 
     @keyframes fadeIn {
         0%{
             opacity: 0;
         }
         100%{
-            opacity: 0;
+            opacity: 1;
         }
     }
- /* --- header.css --- */ 
+    /* --- header.css --- */ 
     .header-contents{
         animation: fadeIn 3s;
     }
