@@ -1,4 +1,16 @@
-//============ Example-1 ============//
+//============ Example ============//
+//============ Example ============//
+
+//============ Example ============//
+  // CUT OUT PASSWORD FORM USER
+  const { password, ...others } = user._doc; 
+
+  res.json(others);
+  } catch (err) {
+  console.log(err);
+  }
+
+//============ Example ============//
 const [cartItems, setCartItems] = useState({});
 
 const addToCart = (itemId) => {
@@ -13,12 +25,12 @@ const removeFromCart = (itemId) => {
   setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }));
 };
 
-//============ Example-2 ============//
+//============ Example ============//
 const [cartItems, setCartItems] = useState(0);
 <div onClick={() => setCartItems((prev) => prev + 1)}>+</div>;
 <div onClick={() => setCartItems((prev) => prev + 1)}>-</div>;
 
-//============ Example-3 ============//
+//============ Example ============//
 import React, { useReducer, useRef, useState } from "react";
 
 const Form = () => {
