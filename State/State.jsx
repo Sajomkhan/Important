@@ -1,6 +1,8 @@
 //============ Example ============//
 //============ Example ============//
 
+
+
 //============ Example ============//
   // CUT OUT PASSWORD FORM USER
   const { password, ...others } = user._doc; 
@@ -9,6 +11,8 @@
   } catch (err) {
   console.log(err);
   }
+
+
 
 //============ Example ============//
 const [cartItems, setCartItems] = useState({});
@@ -25,10 +29,14 @@ const removeFromCart = (itemId) => {
   setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }));
 };
 
+
+
 //============ Example ============//
 const [cartItems, setCartItems] = useState(0);
 <div onClick={() => setCartItems((prev) => prev + 1)}>+</div>;
 <div onClick={() => setCartItems((prev) => prev + 1)}>-</div>;
+
+
 
 //============ Example ============//
 import React, { useReducer, useRef, useState } from "react";
@@ -89,7 +97,6 @@ const Form = () => {
   };
 
   return (
-
     <div>
       <form>
         <input
