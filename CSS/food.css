@@ -47,6 +47,50 @@ a{
   }
 }
 
+@media (max-width: 1280px) {
+
+}
+
+@media (max-width: 1024px) {
+.app{
+  width: 80%;
+}
+}
+
+@media (max-width: 768px) {
+.app{
+  width: 90%;
+}
+}
+
+@media (max-width: 640px) {
+.app{
+  width: 94%;
+}
+p{
+  font-size: 14px;
+}
+.footer li{
+  font-size: 14px;
+}
+}
+
+/* @media (max-width: 1280px) {
+
+}
+
+@media (max-width: 1024px) {
+
+}
+
+@media (max-width: 768px) {
+
+}
+
+@media (max-width: 640px) {
+
+} */
+
 /* ------------------- Navbar.css --------------------- */
 .navbar {
   padding: 15px 0px;
@@ -111,7 +155,11 @@ a{
   border-radius: 50%;
 }
 
-@media (max-width: 1050px) {
+@media (max-width: 1280px) {
+
+}
+
+@media (max-width: 1024px) {
   .navbar .logo {
     width: 140px;
   }
@@ -130,30 +178,14 @@ a{
   }
 }
 
-@media (max-width: 900px) {
-  .navbar .logo {
-    width: 120px;
-  }
-  .navbar-menu {
-    gap: 15px;
-    font-size: 15px;
-  }
-  .navbar-right {
-    gap: 30px;
-  }
-  .navbar-right img {
-    width: 20px;
-  }
-  .navbar-right button {
-    padding: 7px 20px;
-    font-size: 15px;
-  }
-}
-
-@media (max-width: 750px) {
+@media (max-width: 768px) {
   .navbar-menu {
     display: none;
   }
+}
+
+@media (max-width: 640px) {
+
 }
 
 /* ------------------- Header.css --------------------- */
@@ -201,17 +233,30 @@ a{
   font-size: max(1vw, 13px);
 }
 
-@media (max-width:1050px) {
-  .header{
+@media (max-width: 1280px) {
+}
+
+@media (max-width: 1024px) {
+  .header {
     height: 38vw;
   }
 }
 
-@media (max-width:750px) {
-  .header{
+@media (max-width: 768px) {
+  .header {
     height: 45vw;
   }
-  .header-contents{
+  .header-contents {
     max-width: 55%;
   }
 }
+
+@media (max-width: 640px) {
+  .header {
+    height: 58vw;
+  }
+  .header-contents {
+    max-width: 65%;
+  }
+}
+
