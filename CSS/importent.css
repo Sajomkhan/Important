@@ -1,4 +1,12 @@
 /* ---------- Align Center -------------- */
+
+/* Example-1 ------------- */
+.app{
+  width: 75%;
+  margin: auto;
+}
+
+/* Example-2 ------------- */
 /* Parents */
 .login-popup {
   position: absolute;
