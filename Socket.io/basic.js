@@ -1,12 +1,26 @@
-// SOCKET FOR SERVER
-// Send event to client use:    io
-// to send every client use:    io.emit
-// to send one client use:      io.to(socketId).emit
-// Take event from client use:  socket.on
+// SERVER
+// npm i socket.io
+// const http = require("http");
+// const server = http.createServer(app);
+// const { Server } = require("socket.io");
+// const io = new Server(server, {cors: {});
+// io.on("connection", (socket) => {})
 
-// SOCKET FOR CLIENT
-// Send event to server use:    socket.emit
-// Take event from server use:  socket.on
+// CLIENT
+// npm i socket.io-client
+// import io from "socket.io-client";
+// const socket = io.connect("http://localhost:5010");
+// socket.emit("Name", data);
+
+// SERVER
+// Sending event to client:     io
+// Sending event every client:  io.emit
+// Sending one client:          io.to(socketId).emit
+// Get event from client:       socket.on
+
+// CLIENT
+// Sending event to server:     socket.emit
+// Get event from server:       socket.on
 
 //================= index.js ===================//
 const express = require("express");
