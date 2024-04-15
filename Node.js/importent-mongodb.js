@@ -1,5 +1,5 @@
 
-// ================= set update data ====================
+// ================= set update data ====================//
 export const update = async (req, res, next) => {
     if (req.params.id === req.user.id) {
       try {
