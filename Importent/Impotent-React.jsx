@@ -154,3 +154,16 @@ export default function Home() {
     </main>
   );
 }
+
+// ----------------- onKeyDown - "Enter" ------------//
+const handleSearch = (e) => {
+  e.preventDefault();
+ // some code
+};
+<form
+  onSubmit={handleSearch}
+  onKeyDown={(e) =>{if(e.key==="enter"){handleSearch}}}
+>
+  <input type="text" />
+  <button><Image src="/search.png" alt="" width={16} height={16} /></button>
+</form>
