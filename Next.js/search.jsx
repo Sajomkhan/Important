@@ -1,4 +1,4 @@
-//--------------------searct.jsx--------------------//
+//--------------------search.jsx--------------------//
 
 "use client";
 // have to install--------- npm i use-debounce@9.0.4
