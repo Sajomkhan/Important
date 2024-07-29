@@ -22,6 +22,37 @@ const page = () => {
 export default page;
 
 
+//==================== prisma & clark ========================//
+import prisma from "@/lib/client";
+import { auth } from "@clerk/nextjs/server"; 
+
+  const formtAction = async (formData: FormData) => {
+    "use server";
+    if (!userId) return;
+    const desc = formData.get("desc") as string;
+    try {
+      const res = await prisma.post.create({
+        data: {
+          userId: userId,
+          desc: desc,
+        },
+      });
+      console.log(res);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  return (
+    <div>
+      <form action={formtAction}>
+        <input type="text" name="desc" />  
+          {/* must have to use name */}
+        <button>Send</button>
+      </form>
+    </div>
+  );
+};
+
 //==================== root/lib/action.js========================//
 import { connectDB } from "./connection";
 import { User } from "./models";
