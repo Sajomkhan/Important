@@ -26,6 +26,9 @@ export default page;
 import prisma from "@/lib/client";
 import { auth } from "@clerk/nextjs/server"; 
 
+const AddPost = () => {
+  const { userId } = auth();
+  
   const formtAction = async (formData: FormData) => {
     "use server";
     if (!userId) return;
