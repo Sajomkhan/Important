@@ -1,4 +1,6 @@
 
+// npm i next-cloudinary
+
 // set .env 
 
 NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME=dcqw3rtr1
